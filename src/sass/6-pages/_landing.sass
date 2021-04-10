@@ -1,17 +1,43 @@
-header
-    +bg($tertiary-bg)
-    .header-burger
-        +h(35px)
-    .header-img
-        +h(25px)
-
+//THE GOAL was to test different ways how to make evey fourth element not have a right border and every second element to have gold font color
 .page-landing
-    .section-hero
-        .btn
-            font-size: 1.2rem
-        .btn:not(:last-child)
-            +mr(10px)
-        &__content
-            .hero-heading
-                +xl-only
+    background: black
+
+    //VERSION 1 - USING the nth-child css selector
+    //:nth-child css selector
+    //not suppported in very old Internet Explorer 6-8 and Firefox 2-3
+
+    .data-table-v1 .data-text
+        color: #fff
+        font-size: 4.5rem
+        text-align: center
+        border-top: 1px solid white
+    .data-table-v1 .data-text:not(:nth-child(4n))
+        border-right: 1px solid white
+    .data-table-v1 .data-text:nth-child(even)
+        color: gold
+
+    //VERSION 3 using SASS loop to create data-text-1, data-text-2 , .... classes for us
+
+    .data-table-v2
+        @for $i from 1 through 8
+            .data-text-#{$i}
+                color: $secondary-font-color
+                font-size: 4.5rem
+                text-align: center
+                border-top: $border
+                @if $i !=4 and $i != 8
+                    border-right: $border
+                @if $i % 2 == 0
                     color: gold
+
+    //VERSION 4 - THE SIMPLEST OF THEM ALL
+
+    .data-table-v3 .data-text
+        color: #fff
+        font-size: 4.5rem
+        text-align: center
+        border-top: 1px solid white
+    .data-table-v3 .data-text-1, .data-table-v3 .data-text-2, .data-table-v3 .data-text-3, .data-table-v3 .data-text-5, .data-table-v3 .data-text-6, .data-table-v3 .data-text-7
+        border-right: 1px solid white
+    .data-table-v3 .data-text-2, .data-table-v3 .data-text-4, .data-table-v3 .data-text-6, .data-table-v3 .data-text-8
+        color: gold

@@ -6,7 +6,7 @@
 
 $font-family: 'Roboto', sans-serif;
 //background colors
-$primary-bg: #fff; 
+$primary-bg: #000; 
 $secondary-bg: #66B933;
 $tertiary-bg: #000;
 //font colors
@@ -81,4 +81,6 @@ $popup-box-shadow: 2px 0px 25px rgba(#9A9EA6, .6);
 $aspect-ratio-box-height: 315px;
 $aspect-ratio-box-width: 560px;
 $aspect-ratio-box-text: 5vw;
+
+$border: 1px solid white;
 
